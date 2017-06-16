@@ -35,7 +35,8 @@
       "prettier"
     ],
     "rules": {
-      "prefer-promise-reject-errors": 0
+      "prefer-promise-reject-errors": 0,
+      "no-unused-expressions": 0
     }
   },
   "lint-staged": {

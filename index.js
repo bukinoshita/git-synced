@@ -6,10 +6,8 @@ const updateNotifier = require('update-notifier')
 const ora = require('ora')
 
 const readPackage = require('read-package')
-const sync = require('./lib/sync')
-const error = require('./lib/error')
-const confirmDelete = require('./lib/confirm-delete')
-const { showRemotes } = require('./lib/cmd')
+const error = require('./lib/output/error')
+const gitSynced = require('./lib/git-synced')
 
 const cli = meow(
   `
@@ -38,27 +36,16 @@ updateNotifier({ pkg: cli.pkg }).notify()
 const spinner = ora('Updating fork...')
 
 const run = () => {
+  spinner.start()
+
   if (cli.input[0]) {
-    spinner.start()
+    const repo = cli.input[0]
+    gitSynced(repo, spinner)
   } else {
-    spinner.start()
     readPackage()
       .then(pkg => {
         const repo = pkg.repository.url || pkg.repository
-        return showRemotes()
-          .then(remote => {
-            const hasUpstream = remote.stdout.includes('upstream')
-
-            if (hasUpstream) {
-              return confirmDelete(repo, spinner)
-            }
-
-            sync(repo, spinner)
-          })
-          .catch(err => {
-            spinner.stop()
-            error(err)
-          })
+        gitSynced(repo, spinner)
       })
       .catch(err => {
         spinner.stop()

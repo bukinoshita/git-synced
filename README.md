@@ -28,7 +28,7 @@ $ git-synced --help
 
 ## Demo
 
-<img src="https://cldup.com/OVqqOgkAlW.gif"/>
+![](https://github.com/bukinoshita/git-synced/blob/master/demo.gif)
 
 ## License
 

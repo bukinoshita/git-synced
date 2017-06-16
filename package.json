@@ -1,6 +1,6 @@
 {
   "name": "git-synced",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Keep a fork up to date",
   "main": "index.js",
   "repository": "https://github.com/bukinoshita/git-synced.git",

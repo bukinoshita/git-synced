@@ -28,7 +28,7 @@ $ git-synced --help
 
 ## Demo
 
-<img src="https://cldup.com/vU4l_iEpFO.gif"/>
+<img src="https://cldup.com/OVqqOgkAlW.gif"/>
 
 ## License
 

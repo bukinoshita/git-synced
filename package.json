@@ -21,6 +21,9 @@
     "nicht": "^0.0.1",
     "ora": "^1.3.0",
     "read-package": "^0.0.1",
+    "shout-error": "^0.0.1",
+    "shout-message": "^0.0.1",
+    "shout-success": "^0.0.1",
     "update-notifier": "^2.2.0"
   },
   "devDependencies": {

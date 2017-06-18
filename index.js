@@ -6,7 +6,7 @@ const updateNotifier = require('update-notifier')
 const ora = require('ora')
 
 const readPackage = require('read-package')
-const error = require('./lib/output/error')
+const shoutError = require('shout-error')
 const gitSynced = require('./lib/git-synced')
 
 const cli = meow(
@@ -49,7 +49,7 @@ const run = () => {
       })
       .catch(err => {
         spinner.stop()
-        error(err)
+        shoutError(err)
       })
   }
 }

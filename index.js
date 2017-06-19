@@ -19,18 +19,22 @@ const cli = meow(
     $ git-synced                Update fork
     $ git-synced <repo url>     Update fork with GitHub repo url
     $ git-synced <user/repo>    Update fork with GitHub repo
+    $ git-synced -d             Update fork with master branch as default
 
   Example:
     $ git-synced
     $ git-synced https://github.com/ORIGINAL-USER/REPO.git
     $ git-synced ORIGINAL-USER/REPO
+    $ git-synced -d
 
   Options:
+    -d, --default      Use branch master as default
     -h, --help         Show help options
     -v, --version      Show version
 `,
   {
     alias: {
+      d: 'default',
       h: 'help',
       v: 'version'
     }
@@ -40,6 +44,7 @@ const cli = meow(
 updateNotifier({ pkg: cli.pkg }).notify()
 const repository = cli.input[0]
 let userRepo
+let skip = false
 
 Promise.resolve()
   .then(() => {
@@ -62,12 +67,18 @@ Promise.resolve()
     }
   })
   .then(repo => {
+    userRepo = repo
+
+    if (cli.flags.d) {
+      skip = true
+      return { branch: 'master' }
+    }
+
     const spinner = ora('Getting branches...')
     spinner.start()
     return getBranches(repo)
       .then(branches => {
         spinner.stop()
-        userRepo = repo
         return branches
       })
       .catch(err => {
@@ -76,9 +87,15 @@ Promise.resolve()
         process.exit()
       })
   })
-  .then(branches => chooseBranch(branches))
+  .then(branches => {
+    if (skip) {
+      return branches
+    }
+
+    return chooseBranch(branches)
+  })
   .then(({ branch }) => {
-    const spinner = ora('Updating fork...')
+    const spinner = ora(`Updating fork with branch '${branch}'...`)
     spinner.start()
 
     return gitSynced(userRepo, branch)

@@ -15,13 +15,16 @@ $ git-synced --help
     $ git-synced                Update fork
     $ git-synced <repo url>     Update fork with GitHub repo url
     $ git-synced <user/repo>    Update fork with GitHub repo
+    $ git-synced -d             Update fork with master branch as default
 
   Example:
     $ git-synced
     $ git-synced https://github.com/ORIGINAL-USER/REPO.git
     $ git-synced ORIGINAL-USER/REPO
+    $ git-synced -d
 
   Options:
+    -d, --default      Use branch master as default
     -h, --help         Show help options
     -v, --version      Show version
 ```

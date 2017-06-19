@@ -17,11 +17,13 @@ const cli = meow(
   `
   Usage:
     $ git-synced                Update fork
-    $ git-synced <repo url>     Update fork with repo url
+    $ git-synced <repo url>     Update fork with GitHub repo url
+    $ git-synced <user/repo>    Update fork with GitHub repo
 
   Example:
     $ git-synced
     $ git-synced https://github.com/ORIGINAL-USER/REPO.git
+    $ git-synced ORIGINAL-USER/REPO
 
   Options:
     -h, --help         Show help options

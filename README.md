@@ -19,7 +19,7 @@ $ git-synced --help
 
   Example:
     $ git-synced
-    $ git-synced git://github.com/ORIGINAL-DEV-USERNAME/REPO-YOU-FORKED-FROM.git
+    $ git-synced https://github.com/ORIGINAL-USER/REPO.git
 
   Options:
     -h, --help         Show help options

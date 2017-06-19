@@ -1,4 +1,4 @@
-# git-synced (beta) [![Build Status](https://travis-ci.org/bukinoshita/git-synced.svg?branch=master)](https://travis-ci.org/bukinoshita/git-synced)
+# git-synced [![Build Status](https://travis-ci.org/bukinoshita/git-synced.svg?branch=master)](https://travis-ci.org/bukinoshita/git-synced)
 
 > :wind_chime: Keep a fork up to date
 
@@ -6,8 +6,6 @@
 ```bash
 $ npm install -g git-synced
 ```
-
-_This is beta version, will keep testing in real case scenarios and make an official release_
 
 ## Usage
 ```bash

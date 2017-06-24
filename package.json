@@ -15,6 +15,15 @@
   "bin": {
     "git-synced": "index.js"
   },
+  "keywords": [
+    "git",
+    "github",
+    "sync",
+    "fork",
+    "update",
+    "git-synced",
+    "cli"
+  ],
   "dependencies": {
     "chalk": "^1.1.3",
     "execa": "^0.7.0",

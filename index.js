@@ -44,7 +44,7 @@ const cli = meow(
 )
 
 updateNotifier({ pkg: cli.pkg }).notify()
-const repository = cli.input[0]
+const repository = cli.input[0] === 'repository:' ? cli.input[1] : cli.input[0]
 let userRepo
 let skip = false
 

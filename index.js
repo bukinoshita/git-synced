@@ -6,8 +6,8 @@ const updateNotifier = require('update-notifier')
 const ora = require('ora')
 const shoutSuccess = require('shout-success')
 const shoutError = require('shout-error')
-const isGithubRepo = require('is-github-repo')
 const gitUrlPrettify = require('git-url-prettify')
+const isGithubRepo = require('is-github-repo')
 
 const findRepository = require('./lib/find-repository')
 const checkUpstream = require('./lib/check-upstream')
@@ -58,12 +58,7 @@ Promise.resolve()
       .then(repo => {
         spinner.stop()
 
-        if (isGithubRepo(repo)) {
-          return repo
-        }
-
-        shoutError(`We couldn't find the repository`)
-        process.exit()
+        return repo
       })
       .catch(err => {
         spinner.stop()
